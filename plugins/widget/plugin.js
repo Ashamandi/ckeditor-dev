@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
@@ -3190,6 +3190,7 @@
 
 		// Harvest all possible relations and display some closest.
 		var relations = finder.greedySearch(),
+			locations, y,
 
 			buffer = CKEDITOR.tools.eventsBuffer( 50, function() {
 				locations = locator.locate( relations );
