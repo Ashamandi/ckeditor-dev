@@ -1900,6 +1900,15 @@
 									okListener.removeListener();
 									cancelListener.removeListener();
 								} );
+
+								// Edge doesn't restore focus to the widget after closing dialog. (#14570)
+								if ( CKEDITOR.env.edge ) {
+									dialog.on( 'hide', function() {
+										if ( instance.ready && instance.wrapper ) {
+											instance.focus();
+										}
+									}, null, null, 9999 );
+								}
 							} );
 						} else {
 							// Dialog hasn't been set, so insert widget now.
