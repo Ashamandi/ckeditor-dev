@@ -3199,7 +3199,6 @@
 
 		// Harvest all possible relations and display some closest.
 		var relations = finder.greedySearch(),
-			locations, y,
 
 			buffer = CKEDITOR.tools.eventsBuffer( 50, function() {
 				locations = locator.locate( relations );
