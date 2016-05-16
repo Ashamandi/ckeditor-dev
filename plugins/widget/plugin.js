@@ -1905,7 +1905,17 @@
 								if ( CKEDITOR.env.edge ) {
 									dialog.on( 'hide', function() {
 										if ( instance.ready && instance.wrapper ) {
+											// If undo plugin is loaded, we must disable it.
+											// Otherwise focusing widget will be treated as an undo step.
+											if ( editor.undoManager ) {
+												editor.undoManager.lock();
+											}
+
 											instance.focus();
+
+											if ( editor.undoManager ) {
+												editor.undoManager.unlock();
+											}
 										}
 									}, null, null, 9999 );
 								}
